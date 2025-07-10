@@ -88,6 +88,11 @@ class GitRepository(object):
             vers = int(sef.conf.get("core","repositoryformatversion"))
             if vers != 0:
                 raise Exception(f"Unsupported repositoryfarmatverion: {vers}")
+
+    def repo_path(repo, *path):
+        """Compute path under repo's gitdir."""
+        return os.path.join(repo.gitdir, *path)
+
         
         
         
